@@ -31,30 +31,36 @@ What is the greatest product of four adjacent numbers in any direction (up, down
 
 def adjacent_num_product(numAdjacent, matrix):
 	highestProduct = 0
-	for row in xrange(0, len(matrix)):
-		if row < len(matrix) - numAdjacent:
-			# Calculate along upper left to lower right diagonal
-			for col in xrange(row, len(matrix) - numAdjacent):
-				product = matrix[row][col] * matrix[row+1][col+1] * matrix[row+2][col+2] * matrix[row+3][col+3]
-				if product > highestProduct:
-					highestProduct = product
-			# Calculate along upper right to lower left diagonal		
-			for col in xrange(len(matrix) - 1, numAdjacent - 1, -1):
-				product = matrix[row][col] * matrix[row + 1][col - 1] * matrix[row + 2][col - 2] * matrix[row + 3][col - 3]
-				if product > highestProduct:
-					highestProduct = product
-			# Calculate along up/down direction
-			for col in xrange(row, len(matrix) - numAdjacent):
-				product = matrix[row][col] * matrix[row][col + 1] * matrix[row][col + 2] * matrix[row][col + 3]
-				if product > highestProduct:
-					highestProduct = product
+	for row in xrange(0, len(matrix) - numAdjacent):
+		# Calculate along upper left to lower right diagonal
+		for col in xrange(row, len(matrix) - numAdjacent):
+			product = matrix[row][col] * matrix[row+1][col+1] * matrix[row+2][col+2] * matrix[row+3][col+3]
+			if product > highestProduct:
+				highestProduct = product
+		# Calculate along upper right to lower left diagonal		
+		for col in xrange(len(matrix) - 1, numAdjacent - 1, -1):
+			product = matrix[row][col] * matrix[row + 1][col - 1] * matrix[row + 2][col - 2] * matrix[row + 3][col - 3]
+			if product > highestProduct:
+				highestProduct = product
+		# Calculate along up/down direction
+		for col in xrange(row, len(matrix) - numAdjacent):
+			product = matrix[row][col] * matrix[row][col + 1] * matrix[row][col + 2] * matrix[row][col + 3]
+			if product > highestProduct:
+				highestProduct = product
 		
-		# Calculate in left/right direction
+		# Calculate in left/right direction up to row of index len(matrix) - numAdjacent
 		for col in xrange(0, len(matrix) - numAdjacent):
 			product = matrix[row][col] * matrix[row][col + 1] * matrix[row][col + 2] * matrix[row][col + 2]
 			if product > highestProduct:
 				highestProduct = product
-	
+		
+	# Calculate in left/right direction for remaining rows
+	for row in xrange(row, len(matrix)):
+		for col in xrange(0, len(matrix) - numAdjacent):
+			product = matrix[row][col] * matrix[row][col + 1] * matrix[row][col + 2] * matrix[row][col + 2]
+			if product > highestProduct:
+				highestProduct = product
+	#print row
 	return highestProduct
 
 matrixString = """08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08
