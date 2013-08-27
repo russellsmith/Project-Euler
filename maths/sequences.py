@@ -30,3 +30,11 @@ def abundant_numbers(limit=None):
             divisors = find_divisors(i, True)
             if sum(divisors) > i:
                 yield i
+                
+def fibonacci():
+    import itertools
+    prev, current, fib, iteration = 0, 1, 1, 1
+    for i in itertools.count(1,1):
+        yield fib, iteration
+        fib = prev + current
+        prev, current, iteration = current, fib, iteration + 1 
