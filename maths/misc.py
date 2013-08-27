@@ -41,6 +41,14 @@ def find_divisors(number, proper=False):
         divisors.remove(number)
     return divisors
 
+def generate_permutations(elements):
+    if len(elements) <= 1:
+        yield elements
+    else:
+        for perm in generate_permutations(elements[1:]):
+            for i in xrange(len(elements)):
+                yield perm[:i] + elements[0:1] + perm[i:]
+
 if __name__ == "__main__":
     import doctest
     doctest.testmod()
