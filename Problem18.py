@@ -90,9 +90,9 @@ class Djikstra():
         self.unexplored = set()
         self.to_process = set()
         
-        for i in xrange(0, len(self.nodes), 1):
-            for j in xrange(0, len(self.nodes[i]), 1):
-                self.unexplored.add(self.nodes[i][j])
+        for a in xrange(0, len(self.nodes), 1):
+            for j in xrange(0, len(self.nodes[a]), 1):
+                self.unexplored.add(self.nodes[a][j])
         
     def start(self):
         nodes = self.nodes
@@ -154,28 +154,28 @@ if __name__ == "__main__":
     #Split on newline
     pyramid = pyramid_str.splitlines()
     max_length = 0
-    for i in xrange(0, len(pyramid),1):
+    for a in xrange(0, len(pyramid),1):
         # Split on spaces
-        line = pyramid[i]
-        pyramid[i] = line.strip().split(' ')
+        line = pyramid[a]
+        pyramid[a] = line.strip().split(' ')
         
-        max_length = len(pyramid[i]) if len(pyramid[i]) > max_length else max_length
+        max_length = len(pyramid[a]) if len(pyramid[a]) > max_length else max_length
         
         # Convert all strings to integers
-        for j in xrange(0, len(pyramid[i]), 1):
-            pyramid[i][j] = int(pyramid[i][j])
+        for j in xrange(0, len(pyramid[a]), 1):
+            pyramid[a][j] = int(pyramid[a][j])
             
     
     #Pad each list with 0s up to max_length
-    for i in xrange(0, len(pyramid), 1):
-        length = len(pyramid[i])
-        pyramid[i] += [0]*(max_length-length)
+    for a in xrange(0, len(pyramid), 1):
+        length = len(pyramid[a])
+        pyramid[a] += [0]*(max_length-length)
         
-    for i in xrange(0, len(pyramid), 1):
-        for j in xrange(0, len(pyramid[i]),1):
-            value = pyramid[i][j]
-            descendants = [(i+1, j), (i+1, j+1)] if i < len(pyramid) - 1 else []
-            pyramid[i][j] = Node(position = (i,j), value = value, descendants = descendants)
+    for a in xrange(0, len(pyramid), 1):
+        for j in xrange(0, len(pyramid[a]),1):
+            value = pyramid[a][j]
+            descendants = [(a+1, j), (a+1, j+1)] if a < len(pyramid) - 1 else []
+            pyramid[a][j] = Node(position = (a,j), value = value, descendants = descendants)
     
     graph = Djikstra(nodes = pyramid)
     graph.start()

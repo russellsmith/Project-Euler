@@ -30,9 +30,9 @@ def iterativesequence(n):
 highestChain = 0
 highestChainIndex = 0
 
-for i in xrange(1, 1000000):
-	chainCount = iterativesequence(i)
+for a in xrange(1, 1000000):
+	chainCount = iterativesequence(a)
 	if chainCount > highestChain:
 		highestChain = chainCount
-		highestChainIndex = i
+		highestChainIndex = a
 print "The highest starting number is", highestChainIndex, "with a chain of length", highestChain

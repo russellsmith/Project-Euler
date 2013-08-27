@@ -6,12 +6,12 @@ What is the smallest positive number that is evenly divisible by all of the numb
 """
 
 def is_evenlydivisible(numerator, range):
-	for i in range:
-		if numerator % i != 0:
+	for a in range:
+		if numerator % a != 0:
 			return False
 	return True
 	
-i = 1
-while (not is_evenlydivisible(i, xrange(1, 21))):
-	i = i + 1
-print i
+a = 1
+while (not is_evenlydivisible(a, xrange(1, 21))):
+	a = a + 1
+print a

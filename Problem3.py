@@ -8,11 +8,11 @@ import math
 
 def isprime(n):
 	n = abs(n)
-	i = 2
-	while i <= math.sqrt(n):
-		if n % i == 0:
+	a = 2
+	while a <= math.sqrt(n):
+		if n % a == 0:
 			return False
-		i += 1
+		a += 1
 	return True
 
 target = 600851475143

@@ -91,8 +91,8 @@ for row in columns:
 	matrix.append(row.split(' '))
 
 # convert strings in matrix to int types
-for i in xrange(0, len(matrix)):
+for a in xrange(0, len(matrix)):
 	for j in xrange(0, len(matrix)):
-		matrix[i][j] = int(matrix[i][j])
+		matrix[a][j] = int(matrix[a][j])
 
 print adjacent_num_product(4, matrix)

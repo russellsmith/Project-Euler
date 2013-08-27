@@ -13,14 +13,14 @@ Find the difference between the sum of the squares of the first one hundred natu
 
 def sum_of_squares(n):
 	sum = 0
-	for i  in xrange(1, n + 1):
-		sum += i * i
+	for a  in xrange(1, n + 1):
+		sum += a * a
 	return sum
 
 def square_of_sum(n):
 	sum = 0
-	for i  in xrange(1, n + 1):
-		sum += i
+	for a  in xrange(1, n + 1):
+		sum += a
 	return sum * sum
 	
 difference = square_of_sum(100) - sum_of_squares(100)

@@ -26,10 +26,10 @@ Find the greatest product of five consecutive digits in the 1000-digit number.
 
 def greatestproduct(consecutiveNumbers, number):
 	greatestProduct = 0
-	for i in xrange(0, len(number) - consecutiveNumbers + 1):
+	for a in xrange(0, len(number) - consecutiveNumbers + 1):
 		product = 1
 		for j  in xrange(0, 5):
-			product *= int(number[i + j])
+			product *= int(number[a + j])
 		if product > greatestProduct:
 			greatestProduct = product
 	return greatestProduct
