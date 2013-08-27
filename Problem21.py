@@ -31,6 +31,6 @@ if __name__ == "__main__":
     
     numbers = [nums[1] for nums in amicable_numbers.items()]
     total = sum(numbers)
-#         
+    
     print 'Total sum is %d'%total
     

@@ -18,9 +18,9 @@ def isprime(n):
 	
 def sumprimes(n):
 	sum = 0
-	for a in xrange(2, n):
-		if isprime(a):
-			sum += a
+	for i in xrange(2, n):
+		if isprime(i):
+			sum += i
 	return sum
 	
 print sumprimes(2000000)

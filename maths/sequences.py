@@ -4,12 +4,12 @@ def triangle_numbers(limit = None):
     if limit is None:
         # Infinite sequence
         import itertools
-        for a in itertools.count(1, 1):
-            triangle_sum += a
-            yield triangle_sum, a
+        for i in itertools.count(1, 1):
+            triangle_sum += i
+            yield triangle_sum, i
         
     else:
         # Finite sequence
-        for a in xrange(1, limit, 1):
-            triangle_sum += a
-            yield triangle_sum, a
+        for i in xrange(1, limit, 1):
+            triangle_sum += i
+            yield triangle_sum, i

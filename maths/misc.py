@@ -28,12 +28,12 @@ def find_divisors(number, proper=False):
     
     search_limit = int(floor(sqrt(number)))
     
-    for a in xrange(1, search_limit + 1, 1):
-        if number % a is 0:
-            # a is a divisor
-            divisors.add(a)
-            # and so is number // a
-            quotient = number // a
+    for i in xrange(1, search_limit + 1, 1):
+        if number % i is 0:
+            # i is i divisor
+            divisors.add(i)
+            # and so is number // i
+            quotient = number // i
             
             divisors.add(quotient)
             

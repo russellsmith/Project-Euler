@@ -215,8 +215,8 @@ numberString = """37107287533902102798797998220837590246510135740250
 numbers = numberString.split("\n")
 
 # Convert strings to integers
-for a in xrange(0, len(numbers)):
-	numbers[a] = int(numbers[a])
+for i in xrange(0, len(numbers)):
+	numbers[i] = int(numbers[i])
 
 sum = sumarray(numbers)
 

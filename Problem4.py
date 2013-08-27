@@ -10,11 +10,11 @@ def ispalindrome(n):
 	return (n == n[::-1])
 
 largest_palindrome = 0
-for a in xrange(999, 99, -1):
-	for j in xrange(a, 99, -1):
-		product = a * j
+for i in xrange(999, 99, -1):
+	for j in xrange(i, 99, -1):
+		product = i * j
 		if(ispalindrome(str(product))):
 			if product > largest_palindrome:
-				largest_palindrome = a * j
+				largest_palindrome = i * j
 			break
 print largest_palindrome

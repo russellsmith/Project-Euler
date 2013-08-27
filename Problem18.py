@@ -26,7 +26,7 @@ Find the maximum total from top to bottom of the triangle below:
 63 66 04 68 89 53 67 30 73 16 69 87 40 31
 04 62 98 27 23 09 70 98 73 93 38 53 60 04 23
 
-NOTE: As there are only 16384 routes, it is possible to solve this problem by trying every route. However, Problem 67, is the same challenge with a triangle containing one-hundred rows; it cannot be solved by brute force, and requires a clever method! ;o)
+NOTE: As there are only 16384 routes, it is possible to solve this problem by trying every route. However, Problem 67, is the same challenge with i triangle containing one-hundred rows; it cannot be solved by brute force, and requires i clever method! ;o)
 """
 
 class Node():
@@ -74,8 +74,8 @@ class Node():
             yield d
             
     def ancestors(self):
-        for a in self.__ancestors:
-            yield a
+        for i in self.__ancestors:
+            yield i
             
 class Djikstra():
     def __init__(self, **kwargs):
@@ -90,9 +90,9 @@ class Djikstra():
         self.unexplored = set()
         self.to_process = set()
         
-        for a in xrange(0, len(self.nodes), 1):
-            for j in xrange(0, len(self.nodes[a]), 1):
-                self.unexplored.add(self.nodes[a][j])
+        for i in xrange(0, len(self.nodes), 1):
+            for j in xrange(0, len(self.nodes[i]), 1):
+                self.unexplored.add(self.nodes[i][j])
         
     def start(self):
         nodes = self.nodes
@@ -106,9 +106,9 @@ class Djikstra():
         # While there are nodes to process
         while len(to_process) > 0:
             node = to_process.pop()
-            for a in node.ancestors():
+            for i in node.ancestors():
                 # Grab ancestor
-                row, col = a[0], a[1]
+                row, col = i[0], i[1]
                 ancestor = nodes[row][col]
                 
                 # Cost to get to this node is cost to get to ancestor + this nodes cost
@@ -154,28 +154,28 @@ if __name__ == "__main__":
     #Split on newline
     pyramid = pyramid_str.splitlines()
     max_length = 0
-    for a in xrange(0, len(pyramid),1):
+    for i in xrange(0, len(pyramid),1):
         # Split on spaces
-        line = pyramid[a]
-        pyramid[a] = line.strip().split(' ')
+        line = pyramid[i]
+        pyramid[i] = line.strip().split(' ')
         
-        max_length = len(pyramid[a]) if len(pyramid[a]) > max_length else max_length
+        max_length = len(pyramid[i]) if len(pyramid[i]) > max_length else max_length
         
         # Convert all strings to integers
-        for j in xrange(0, len(pyramid[a]), 1):
-            pyramid[a][j] = int(pyramid[a][j])
+        for j in xrange(0, len(pyramid[i]), 1):
+            pyramid[i][j] = int(pyramid[i][j])
             
     
     #Pad each list with 0s up to max_length
-    for a in xrange(0, len(pyramid), 1):
-        length = len(pyramid[a])
-        pyramid[a] += [0]*(max_length-length)
+    for i in xrange(0, len(pyramid), 1):
+        length = len(pyramid[i])
+        pyramid[i] += [0]*(max_length-length)
         
-    for a in xrange(0, len(pyramid), 1):
-        for j in xrange(0, len(pyramid[a]),1):
-            value = pyramid[a][j]
-            descendants = [(a+1, j), (a+1, j+1)] if a < len(pyramid) - 1 else []
-            pyramid[a][j] = Node(position = (a,j), value = value, descendants = descendants)
+    for i in xrange(0, len(pyramid), 1):
+        for j in xrange(0, len(pyramid[i]),1):
+            value = pyramid[i][j]
+            descendants = [(i+1, j), (i+1, j+1)] if i < len(pyramid) - 1 else []
+            pyramid[i][j] = Node(position = (i,j), value = value, descendants = descendants)
     
     graph = Djikstra(nodes = pyramid)
     graph.start()

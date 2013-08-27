@@ -80,7 +80,7 @@ def number_to_string(number):
 
 if __name__ == "__main__":
     # Construct array of strings representing numbers from [1,1000] with white space removed.
-    numbers = [number_to_string(a).replace(" ","") for a in xrange(1, 1001, 1)]
+    numbers = [number_to_string(i).replace(" ","") for i in xrange(1, 1001, 1)]
     
     # Join array by empty string
     number_str = ''.join(numbers)
