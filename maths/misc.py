@@ -48,6 +48,15 @@ def generate_permutations(elements):
         for perm in generate_permutations(elements[1:]):
             for i in xrange(len(elements)):
                 yield perm[:i] + elements[0:1] + perm[i:]
+                
+def is_prime(n):
+    if n % 2 == 0 and n != 2:
+        # Any number divisible by 2 is not prime, unless it is 2
+        return False
+    for divisor in xrange(3, int(n ** 0.5) + 1, 2):
+        if n % divisor == 0:
+            return False
+    return True
 
 if __name__ == "__main__":
     import doctest
