@@ -58,6 +58,28 @@ def is_prime(n):
             return False
     return True
 
+def get_digits(number):
+    digits = []
+    while number > 0:
+        digit = number % 10
+        digits.append(digit)
+        number = number / 10
+        
+    return digits
+
+def get_unique_digits(number):
+    digits = set()
+    all_unique = True
+    while number > 0:
+        digit = number % 10
+        if digit not in digits:
+            digits.add(digit)
+        else:
+            all_unique = False
+        number = number / 10
+        
+    return digits, all_unique
+
 if __name__ == "__main__":
     import doctest
     doctest.testmod()
