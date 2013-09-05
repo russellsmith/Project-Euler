@@ -64,6 +64,7 @@ def get_digits(number):
         digit = number % 10
         digits.append(digit)
         number = number / 10
+    digits.reverse()
         
     return digits
 
