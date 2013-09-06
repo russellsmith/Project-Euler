@@ -10,13 +10,18 @@ if __name__ == "__main__":
     numbers = []
     for i in xrange(1,1000000):
         from strings.patterns import is_palindrome
+        
+        # Convert decimal value to string
         decimal_string = str(i)
         
+        # Check if its a palindrome
         if not is_palindrome(decimal_string):
             continue
         
+        # Convert decimal value to binary string
         binary_string = "{0:b}".format(i)
         
+        # Check if its a palindrome
         if is_palindrome(binary_string):
             numbers.append(i)
     
