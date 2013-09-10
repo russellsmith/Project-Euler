@@ -81,6 +81,14 @@ def get_unique_digits(number):
         
     return digits, all_unique
 
+def digit_list_to_num(digits):
+    length = len(digits)
+    num = 0
+    for i in xrange(length):
+        power = length - 1 - i
+        num += digits[i] * 10**power
+        
+    return num
 if __name__ == "__main__":
     import doctest
     doctest.testmod()
